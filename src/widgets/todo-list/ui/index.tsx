@@ -11,9 +11,7 @@ function TodoList({ todos, deleteTodo }: TodoListProps) {
   return (
     <div className={styles.todoList}>
       {todos.length > 0 ? (
-        todos.map((todo) => (
-          <Todo key={todo.id} text={todo.text} id={todo.id} deleteTodo={deleteTodo} />
-        ))
+        todos.map((todo) => <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} />)
       ) : (
         <h2>Todo list is empty</h2>
       )}
