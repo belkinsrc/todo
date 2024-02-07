@@ -1,17 +1,25 @@
 import { useState } from 'react';
+import { generateId } from '@/shared/api';
+import { ITodo } from '@/shared/api';
 import { TodoList } from '@/widgets/todo-list';
 import { TodoForm } from '@/widgets/todo-form';
 import styles from './styles.module.scss';
 
 function TodoListPage() {
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<ITodo[]>([]);
 
-  const addTodoHandler = (todo: string) => {
+  const addTodoHandler = (todoText: string) => {
+    const todo: ITodo = {
+      id: generateId(),
+      text: todoText,
+      isCompleted: false,
+    };
+
     setTodos((prevTodos) => [...prevTodos, todo]);
   };
 
-  const deleteTodoHandler = (id: number) => {
-    setTodos((prevTodos) => [...prevTodos.slice(0, id), ...prevTodos.slice(id + 1)]);
+  const deleteTodoHandler = (id: string) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
   return (

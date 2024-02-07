@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import styles from './styles.module.scss';
 
 interface TodoFormProps {
-  addTodo: (todo: string) => void;
+  addTodo: (todoText: string) => void;
 }
 
 function TodoForm({ addTodo }: TodoFormProps) {
-  const [text, setText] = useState('');
+  const [todoText, setTodoText] = useState('');
 
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (text.trim()) {
-      addTodo(text);
-      setText('');
+    if (todoText.trim()) {
+      addTodo(todoText);
+      setTodoText('');
     }
   };
 
   const onChangeHandler = (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
 
-    setText(target.value);
+    setTodoText(target.value);
   };
 
   return (
@@ -29,7 +29,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
         className={styles.formInput}
         type="text"
         placeholder="Enter new todo"
-        value={text}
+        value={todoText}
         onChange={onChangeHandler}
       />
       <button className={styles.formButton} type="submit">

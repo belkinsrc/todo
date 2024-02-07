@@ -2,16 +2,16 @@ import { RiTodoFill } from 'react-icons/ri';
 import styles from './styles.module.scss';
 
 interface TodoProps {
-  todo: string;
-  id: number;
-  deleteTodo: (id: number) => void;
+  text: string;
+  id: string;
+  deleteTodo: (id: string) => void;
 }
 
-function Todo({ todo, id, deleteTodo }: TodoProps) {
+function Todo({ text, id, deleteTodo }: TodoProps) {
   return (
     <div className={styles.todo} onDoubleClick={() => deleteTodo(id)}>
       <RiTodoFill className={styles.todoIcon} />
-      <div className={styles.todoText}>{todo}</div>
+      <div className={styles.todoText}>{text}</div>
     </div>
   );
 }
