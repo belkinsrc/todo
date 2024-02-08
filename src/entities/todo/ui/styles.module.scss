@@ -19,4 +19,10 @@
     margin-right: 10px;
     color: teal;
   }
+
+  &--completed {
+    background-color: unset;
+    border-color: gray;
+    color: gray;
+  }
 }

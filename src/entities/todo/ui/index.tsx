@@ -4,14 +4,19 @@ import styles from './styles.module.scss';
 
 interface TodoProps {
   todo: ITodo;
-  deleteTodo: (id: string) => void;
+  DeleteIcon: React.ReactElement;
+  CompleteIcon: React.ReactElement;
 }
 
-function Todo({ todo, deleteTodo }: TodoProps) {
+function Todo({ todo, DeleteIcon, CompleteIcon }: TodoProps) {
+  const todoClassName = todo.isCompleted ? styles.todoCompleted : styles.todo;
+
   return (
-    <div className={styles.todo} onDoubleClick={() => deleteTodo(todo.id)}>
+    <div className={todoClassName}>
       <RiTodoFill className={styles.todoIcon} />
       <div className={styles.todoText}>{todo.text}</div>
+      {DeleteIcon}
+      {CompleteIcon}
     </div>
   );
 }
