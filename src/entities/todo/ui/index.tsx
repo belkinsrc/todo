@@ -9,7 +9,7 @@ interface TodoProps {
 }
 
 function Todo({ todo, DeleteIcon, CompleteIcon }: TodoProps) {
-  const todoClassName = todo.isCompleted ? styles.todoCompleted : styles.todo;
+  const todoClassName = todo.isCompleted ? styles.todo + ' ' + styles.todoCompleted : styles.todo;
 
   return (
     <div className={todoClassName}>

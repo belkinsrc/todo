@@ -1,5 +1,5 @@
 import { RiDeleteBin2Line } from 'react-icons/ri';
-import { Button } from '@/shared/ui';
+import style from './styles.module.scss';
 
 interface DeleteTodoProps {
   id: string;
@@ -7,7 +7,7 @@ interface DeleteTodoProps {
 }
 
 function DeleteTodo({ id, deleteTodo }: DeleteTodoProps) {
-  return <Button icon={<RiDeleteBin2Line />} onClick={() => deleteTodo(id)} />;
+  return <RiDeleteBin2Line className={style.deleteIcon} onClick={() => deleteTodo(id)} />;
 }
 
 export { DeleteTodo };
