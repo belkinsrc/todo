@@ -23,20 +23,11 @@ function TodoListPage() {
   };
 
   const completeTodoHandler = (id: string, status: boolean) => {
-    function updateTodoStatus(todos: ITodo[], idToUpdate: string, status: boolean) {
-      const updateTodos = [...todos];
-
-      const indexToUpdate = updateTodos.findIndex((todo) => todo.id === idToUpdate);
-
-      if (indexToUpdate !== -1) {
-        updateTodos[indexToUpdate] = {
-          ...updateTodos[indexToUpdate],
-          isCompleted: status,
-        };
-      }
-      return updateTodos;
-    }
-    setTodos(updateTodoStatus(todos, id, status));
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        return todo.id === id ? { ...todo, isCompleted: status } : { ...todo };
+      }),
+    );
   };
 
   return (
