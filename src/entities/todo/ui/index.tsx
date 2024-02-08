@@ -9,10 +9,8 @@ interface TodoProps {
 }
 
 function Todo({ todo, DeleteIcon, CompleteIcon }: TodoProps) {
-  const todoClassName = todo.isCompleted ? styles.todo + ' ' + styles.todoCompleted : styles.todo;
-
   return (
-    <div className={todoClassName}>
+    <div className={`${styles.todo} ${todo.isCompleted ? styles.todoCompleted : ''}`}>
       <RiTodoFill className={styles.todoIcon} />
       <div className={styles.todoText}>{todo.text}</div>
       {DeleteIcon}

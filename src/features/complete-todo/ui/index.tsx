@@ -1,5 +1,5 @@
 import { FaCheck } from 'react-icons/fa';
-import style from './styles.module.scss';
+import styles from './styles.module.scss';
 
 interface CompleteTodoProps {
   id: string;
@@ -8,7 +8,7 @@ interface CompleteTodoProps {
 }
 
 function CompleteTodo({ id, isCompleted, completeTodo }: CompleteTodoProps) {
-  return <FaCheck className={style.checkIcon} onClick={() => completeTodo(id, !isCompleted)} />;
+  return <FaCheck className={styles.checkIcon} onClick={() => completeTodo(id, !isCompleted)} />;
 }
 
 export { CompleteTodo };
