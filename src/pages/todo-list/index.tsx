@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { generateId } from '@/shared/api';
 import { ITodo } from '@/shared/api';
+import { ResetTodos } from '@/features/reset-todos';
+import { ClearCompletedTodos } from '@/features/clear-completed-todos/ui';
 import { TodoList } from '@/widgets/todo-list';
 import { TodoForm } from '@/widgets/todo-form';
 import styles from './styles.module.scss';
@@ -30,10 +32,27 @@ function TodoListPage() {
     );
   };
 
+  const resetTodosHandler = () => {
+    setTodos([]);
+  };
+
+  const clearCompletedTodosHandler = () => {
+    setTodos((prevTodos) => prevTodos.filter((todos) => !todos.isCompleted));
+  };
+
+  const checkCompletedTodos = (): boolean => {
+    return todos.find((todo) => todo.isCompleted) ? true : false;
+  };
+
   return (
     <>
       <h1 className={styles.title}>Todo App</h1>
       <TodoForm addTodo={addTodoHandler} />
+      <ResetTodos resetTodos={resetTodosHandler} />
+      <ClearCompletedTodos
+        clearCompletedTodos={clearCompletedTodosHandler}
+        checkCompletedTodos={checkCompletedTodos}
+      />
       <TodoList todos={todos} deleteTodo={deleteTodoHandler} completeTodo={completeTodoHandler} />
     </>
   );
