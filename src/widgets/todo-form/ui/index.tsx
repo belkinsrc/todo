@@ -33,7 +33,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
         value={todoText}
         onChange={onChangeHandler}
       />
-      <Button type="submit" title="Submit form">
+      <Button type="submit" title="Submit">
         Submit
       </Button>
     </form>

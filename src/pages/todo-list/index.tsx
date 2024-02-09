@@ -54,7 +54,9 @@ function TodoListPage() {
         />
       )}
       <TodoList todos={todos} deleteTodo={deleteTodoHandler} completeTodo={completeTodoHandler} />
-      {completeTodosCount > 0 && <h2>You have completed {completeTodosCount} todos!</h2>}
+      {completeTodosCount > 0 && (
+        <h2>{`You have completed ${completeTodosCount} ${completeTodosCount > 1 ? 'todos' : 'todo'}`}</h2>
+      )}
     </>
   );
 }
