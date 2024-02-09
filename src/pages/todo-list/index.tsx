@@ -48,11 +48,13 @@ function TodoListPage() {
     <>
       <h1 className={styles.title}>Todo App</h1>
       <TodoForm addTodo={addTodoHandler} />
-      <ResetTodos resetTodos={resetTodosHandler} />
-      <ClearCompletedTodos
-        clearCompletedTodos={clearCompletedTodosHandler}
-        checkCompletedTodos={checkCompletedTodos}
-      />
+      {!!todos.length && <ResetTodos resetTodos={resetTodosHandler} />}
+      {!!todos.length && (
+        <ClearCompletedTodos
+          clearCompletedTodos={clearCompletedTodosHandler}
+          checkCompletedTodos={checkCompletedTodos}
+        />
+      )}
       <TodoList todos={todos} deleteTodo={deleteTodoHandler} completeTodo={completeTodoHandler} />
     </>
   );
