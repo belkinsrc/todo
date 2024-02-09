@@ -40,9 +40,7 @@ function TodoListPage() {
     setTodos((prevTodos) => prevTodos.filter((todos) => !todos.isCompleted));
   };
 
-  const checkCompletedTodos = (): boolean => {
-    return todos.find((todo) => todo.isCompleted) ? true : false;
-  };
+  const completeTodosCount = todos.filter((todo) => todo.isCompleted).length;
 
   return (
     <>
@@ -52,10 +50,11 @@ function TodoListPage() {
       {!!todos.length && (
         <ClearCompletedTodos
           clearCompletedTodos={clearCompletedTodosHandler}
-          checkCompletedTodos={checkCompletedTodos}
+          completedTodoExist={!!completeTodosCount}
         />
       )}
       <TodoList todos={todos} deleteTodo={deleteTodoHandler} completeTodo={completeTodoHandler} />
+      {completeTodosCount > 0 && <h2>You have completed {completeTodosCount} todos!</h2>}
     </>
   );
 }

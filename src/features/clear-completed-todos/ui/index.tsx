@@ -3,17 +3,17 @@ import { Button } from '@/shared/ui';
 
 interface ClearCompletedTodosProps {
   clearCompletedTodos: () => void;
-  checkCompletedTodos: () => boolean;
+  completedTodoExist: boolean;
 }
 
 function ClearCompletedTodos({
   clearCompletedTodos,
-  checkCompletedTodos,
+  completedTodoExist,
 }: ClearCompletedTodosProps) {
   return (
     <Button
       title="Clear Completed Todos"
-      disabled={!checkCompletedTodos()}
+      disabled={!completedTodoExist}
       onClick={clearCompletedTodos}
     >
       <RiDeleteBin2Line />
