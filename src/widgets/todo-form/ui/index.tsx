@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '@/shared/ui';
 import styles from './styles.module.scss';
 
 interface TodoFormProps {
@@ -32,9 +33,9 @@ function TodoForm({ addTodo }: TodoFormProps) {
         value={todoText}
         onChange={onChangeHandler}
       />
-      <button className={styles.formButton} type="submit">
+      <Button type="submit" title="Submit form">
         Submit
-      </button>
+      </Button>
     </form>
   );
 }
