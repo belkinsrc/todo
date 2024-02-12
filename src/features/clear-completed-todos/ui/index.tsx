@@ -6,10 +6,10 @@ interface ClearCompletedTodosProps {
   completedTodoExist: boolean;
 }
 
-function ClearCompletedTodos({
+const ClearCompletedTodos: React.FC<ClearCompletedTodosProps> = ({
   clearCompletedTodos,
   completedTodoExist,
-}: ClearCompletedTodosProps) {
+}) => {
   return (
     <Button
       title="Clear Completed Todos"
@@ -19,6 +19,6 @@ function ClearCompletedTodos({
       <RiDeleteBin2Line />
     </Button>
   );
-}
+};
 
 export { ClearCompletedTodos };

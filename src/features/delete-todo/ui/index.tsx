@@ -6,8 +6,8 @@ interface DeleteTodoProps {
   deleteTodo: (id: string) => void;
 }
 
-function DeleteTodo({ id, deleteTodo }: DeleteTodoProps) {
+const DeleteTodo: React.FC<DeleteTodoProps> = ({ id, deleteTodo }) => {
   return <RiDeleteBin2Line className={styles.deleteIcon} onClick={() => deleteTodo(id)} />;
-}
+};
 
 export { DeleteTodo };

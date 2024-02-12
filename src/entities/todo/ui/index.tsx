@@ -8,7 +8,7 @@ interface TodoProps {
   CompleteIcon: React.ReactElement;
 }
 
-function Todo({ todo, DeleteIcon, CompleteIcon }: TodoProps) {
+const Todo: React.FC<TodoProps> = ({ todo, DeleteIcon, CompleteIcon }) => {
   return (
     <div className={`${styles.todo} ${todo.isCompleted ? styles.todoCompleted : ''}`}>
       <RiTodoFill className={styles.todoIcon} />
@@ -17,6 +17,6 @@ function Todo({ todo, DeleteIcon, CompleteIcon }: TodoProps) {
       {CompleteIcon}
     </div>
   );
-}
+};
 
 export { Todo };

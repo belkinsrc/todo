@@ -4,12 +4,12 @@ import { ROUTE_CONSTANTS } from '@/shared/config';
 
 const TodoListPage = lazy(() => import('./todo-list'));
 
-function Routing() {
+const Routing: React.FC = () => {
   return (
     <Routes>
       <Route path={ROUTE_CONSTANTS.HOME} element={<TodoListPage />} />
     </Routes>
   );
-}
+};
 
 export { Routing };

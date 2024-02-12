@@ -5,12 +5,12 @@ interface ResetTodosProps {
   resetTodos: () => void;
 }
 
-function ResetTodos({ resetTodos }: ResetTodosProps) {
+const ResetTodos: React.FC<ResetTodosProps> = ({ resetTodos }) => {
   return (
     <Button title="Reset Todos" onClick={resetTodos}>
       <RiRefreshLine />
     </Button>
   );
-}
+};
 
 export { ResetTodos };

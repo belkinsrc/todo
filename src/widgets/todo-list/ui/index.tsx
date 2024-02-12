@@ -10,7 +10,7 @@ interface TodoListProps {
   completeTodo: (id: string, isCompleted: boolean) => void;
 }
 
-function TodoList({ todos, deleteTodo, completeTodo }: TodoListProps) {
+const TodoList: React.FC<TodoListProps> = ({ todos, deleteTodo, completeTodo }) => {
   return (
     <div className={styles.todoList}>
       {todos.length > 0 ? (
@@ -33,6 +33,6 @@ function TodoList({ todos, deleteTodo, completeTodo }: TodoListProps) {
       )}
     </div>
   );
-}
+};
 
 export { TodoList };

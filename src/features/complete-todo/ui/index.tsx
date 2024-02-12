@@ -7,8 +7,8 @@ interface CompleteTodoProps {
   completeTodo: (id: string, isCompleted: boolean) => void;
 }
 
-function CompleteTodo({ id, isCompleted, completeTodo }: CompleteTodoProps) {
+const CompleteTodo: React.FC<CompleteTodoProps> = ({ id, isCompleted, completeTodo }) => {
   return <FaCheck className={styles.checkIcon} onClick={() => completeTodo(id, !isCompleted)} />;
-}
+};
 
 export { CompleteTodo };

@@ -6,7 +6,7 @@ interface TodoFormProps {
   addTodo: (todoText: string) => void;
 }
 
-function TodoForm({ addTodo }: TodoFormProps) {
+const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
   const [todoText, setTodoText] = useState('');
 
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
@@ -38,6 +38,6 @@ function TodoForm({ addTodo }: TodoFormProps) {
       </Button>
     </form>
   );
-}
+};
 
 export { TodoForm };

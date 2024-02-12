@@ -7,7 +7,7 @@ import { TodoList } from '@/widgets/todo-list';
 import { TodoForm } from '@/widgets/todo-form';
 import styles from './styles.module.scss';
 
-function TodoListPage() {
+const TodoListPage: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
   const addTodoHandler = (todoText: string) => {
@@ -59,6 +59,6 @@ function TodoListPage() {
       )}
     </>
   );
-}
+};
 
 export default TodoListPage;

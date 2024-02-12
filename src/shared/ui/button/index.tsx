@@ -8,7 +8,13 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-function Button({ children, type = 'button', title, disabled = false, onClick }: ButtonProps) {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  type = 'button',
+  title,
+  disabled = false,
+  onClick,
+}) => {
   return (
     <button
       className={styles.button}
@@ -20,6 +26,6 @@ function Button({ children, type = 'button', title, disabled = false, onClick }:
       {children}
     </button>
   );
-}
+};
 
 export { Button };
