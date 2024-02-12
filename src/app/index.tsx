@@ -1,19 +1,9 @@
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { ROUTE_CONSTANTS } from '@/shared/config';
+/* eslint-disable react-refresh/only-export-components */
 import { Routing } from '@/pages';
+import { withProviders } from './providers';
 import './index.scss';
 
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (location.pathname !== ROUTE_CONSTANTS.HOME) {
-      navigate(ROUTE_CONSTANTS.HOME);
-    }
-  }, [location, navigate]);
-
   return (
     <div className="app">
       <Routing />
@@ -21,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default withProviders(App);
