@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { generateId } from '@/shared/api';
+import { ITodo } from '@/shared/api';
 import { Button } from '@/shared/ui';
+import { TodoContext } from '@/app/context';
 import styles from './styles.module.scss';
 
-interface TodoFormProps {
-  addTodo: (todoText: string) => void;
-}
-
-const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
+const TodoForm: React.FC = () => {
   const [todoText, setTodoText] = useState('');
+  const { setTodos } = useContext(TodoContext);
+
+  const addTodoHandler = (todoText: string) => {
+    const todo: ITodo = {
+      id: generateId(),
+      text: todoText,
+      isCompleted: false,
+    };
+
+    setTodos((prevTodos) => [...prevTodos, todo]);
+  };
 
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (todoText.trim()) {
-      addTodo(todoText);
+      addTodoHandler(todoText);
       setTodoText('');
     }
   };

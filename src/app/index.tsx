@@ -3,7 +3,7 @@ import { Routing } from '@/pages';
 import { withProviders } from './providers';
 import './index.scss';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div className="app">
       <Routing />

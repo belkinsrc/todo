@@ -1,13 +1,13 @@
+import { useContext } from 'react';
 import { RiRefreshLine } from 'react-icons/ri';
 import { Button } from '@/shared/ui';
+import { TodoContext } from '@/app/context';
 
-interface ResetTodosProps {
-  resetTodos: () => void;
-}
+const ResetTodos: React.FC = () => {
+  const { setTodos } = useContext(TodoContext);
 
-const ResetTodos: React.FC<ResetTodosProps> = ({ resetTodos }) => {
   return (
-    <Button title="Reset Todos" onClick={resetTodos}>
+    <Button title="Reset Todos" onClick={() => setTodos([])}>
       <RiRefreshLine />
     </Button>
   );

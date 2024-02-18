@@ -1,16 +1,13 @@
-import { ITodo } from '@/shared/api';
+import { useContext } from 'react';
 import { Todo } from '@/entities/todo';
 import { DeleteTodo } from '@/features/delete-todo';
 import { CompleteTodo } from '@/features/complete-todo';
+import { TodoContext } from '@/app/context';
 import styles from './styles.module.scss';
 
-interface TodoListProps {
-  todos: ITodo[];
-  deleteTodo: (id: string) => void;
-  completeTodo: (id: string, isCompleted: boolean) => void;
-}
+const TodoList: React.FC = () => {
+  const { todos } = useContext(TodoContext);
 
-const TodoList: React.FC<TodoListProps> = ({ todos, deleteTodo, completeTodo }) => {
   return (
     <div className={styles.todoList}>
       {todos.length > 0 ? (
@@ -18,14 +15,8 @@ const TodoList: React.FC<TodoListProps> = ({ todos, deleteTodo, completeTodo }) 
           <Todo
             key={todo.id}
             todo={todo}
-            DeleteIcon={<DeleteTodo id={todo.id} deleteTodo={deleteTodo} />}
-            CompleteIcon={
-              <CompleteTodo
-                id={todo.id}
-                isCompleted={todo.isCompleted}
-                completeTodo={completeTodo}
-              />
-            }
+            DeleteIcon={<DeleteTodo id={todo.id} />}
+            CompleteIcon={<CompleteTodo id={todo.id} isCompleted={todo.isCompleted} />}
           />
         ))
       ) : (

@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 
-function withRouter(component: () => React.ReactNode) {
-  return () => <BrowserRouter>{component()}</BrowserRouter>;
-}
+const withRouter = (component: () => React.ReactNode) => () => (
+  <BrowserRouter>{component()}</BrowserRouter>
+);
 
 export { withRouter };
